@@ -1,19 +1,77 @@
-<div class="cover mb-4 d-flex align-items-center justify-content-center">
-  <div class="text-center text-white">
-    <h1>Save all your favourite recipes</h1>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <%= image_tag "https://99designs-blog.imgix.net/blog/wp-content/uploads/2022/06/Starbucks_Corporation_Logo_2011.svg-e1657703028844.png?auto=format&q=60&fit=max&w=930" %>
+    <% end %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <%# if user_signed_in? %>
+          <li class="nav-item active">
+            <%= link_to "Home", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "New Category", "#", class: "nav-link" %>
+          </li>
+
+        <%# else %>
+          <!--li class="nav-item"-->
+            <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <!--/li-->
+        <%# end %>
+      </ul>
+    </div>
   </div>
 </div>
-<!-- Create New category Button -->
-<div class="container py-5 text-end">
-  <%= link_to "Create a new category", new_category_path , class: "btn-flat" %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.istockphoto.com/id/925256408/photo/spaghetti-with-fresh-tomato-sauce-mozzarella-and-basil.jpg?s=2048x2048&w=is&k=20&c=zQgwwEh25G0DRoaxXGzRfPslBnVShx1tEXPc2yTtVOk=);">
+  <div class="container">
+    <div class="text-center text-white">
+      <h1>COOKBOOK</h1>
+      <h2>Save all your favourite recipes</h1></h2>
+    </div>
+  </div>
+  <div class="cover mb-4 d-flex align-items-center justify-content-center">
+
+</div>
 </div>
 
-<h1>My categories</h1>
+
+<!-- Create New category Button -->
+<div class="container py-5 text-end">
+  <%= link_to "New Category", new_category_path , class: "btn-flat" %>
+</div>
+
+<%# <h1>My categories</h1> %>
 <!-- Categories Section -->
+
 <div class="row">
   <% @categories.each do |category| %>
     <div class="cards">
-      <h2><%= link_to category.name, category_path(category), class: "category-link" %></h2>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> Breakfast
+        <h2><%= link_to category.name, category_path(category), class: "category-link" %></h2>
+        </div>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">Lunch
+        <h2><%= link_to category.name, category_path(category), class: "category-link" %></h2>
+        </div>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">Dinner
+        <h2><%= link_to category.name, category_path(category), class: "category-link" %></h2>
+        </div>
     </div>
   <% end %>
+</div>
+<div class="footer">
+  <div class="footer-links">
+    <a href="#"><i class="fab fa-github"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is cooked-up with <i class="fas fa-heart"></i> by Sanjay
+  </div>
 </div>
