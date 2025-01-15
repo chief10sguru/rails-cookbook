@@ -1,18 +1,55 @@
-<h1><%= @category.name %></h1>
+<div class="navbar navbar-expand-sm navbar-light navbar-cookbook">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <%= image_tag "https://99designs-blog.imgix.net/blog/wp-content/uploads/2022/06/Starbucks_Corporation_Logo_2011.svg-e1657703028844.png?auto=format&q=60&fit=max&w=930" %>
+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<!-- Categories Section -->
-<div class="categories">
-  <% @category.bookmarks.each do |bookmark| %>
-    <div class="cards">
-      <h2><%= bookmark.recipe.name %></h2>
-
-    <%= link_to "Delete", bookmark_path(bookmark),
-          data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn-flat"%>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <%= link_to "Home", categories_path, class:"nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Add Category", new_category_path , class: "nav-link" %>
+          </li>
+      </ul>
     </div>
-    <br>
-  <% end %>
+  </div>
 </div>
-<br>
-  <%= link_to "Add a new recipe to Bookmark", new_category_bookmark_path(@category), class: "btn-flat" %>
-  <br>
-  <%= link_to "Return to categories index", categories_path, class: "btn-flat" %>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://media.istockphoto.com/id/925256408/photo/spaghetti-with-fresh-tomato-sauce-mozzarella-and-basil.jpg?s=2048x2048&w=is&k=20&c=zQgwwEh25G0DRoaxXGzRfPslBnVShx1tEXPc2yTtVOk=);">
+  <div class="container">
+    <h1><%= @category.name %></h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="info-top">
+    <h1>Recipes</h1>
+    <div class="text-end">
+      <%= link_to "Add a recipe", new_category_bookmark_path(@category), class: "btn-flat" %>
+    </div>
+  </div>
+
+  <div class="cards">
+    <% @category.bookmarks.each do |bookmark| %>
+    <div class="card-recipe" >
+      <img src="<%= bookmark.recipe.image_url%>">
+      <div class="card-recipe-description">
+        <h2><%= bookmark.recipe.name %></h2>
+        <p><%= bookmark.recipe.description.truncate(200) %></p>
+      </div>
+      <div class="card-recipe-info">
+        <%= bookmark.comment %>
+      </div>
+      <div>
+        <%= bookmark.recipe.rating %> <%= '⭐'* bookmark.recipe.rating %>
+      </div>
+    </div>
+  <% end %>
+
+  </div>
+</div>
