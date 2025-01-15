@@ -51,6 +51,10 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  a {
+    color: white;
+  }
 }
 .card-recipe {
   overflow: hidden;
@@ -94,8 +98,9 @@
 .card-recipe-description {
   padding: 16px;
   height: 200px;
+
 }
 .card-recipe-info {
   display: flex;
-
 }
+
